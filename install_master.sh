@@ -4,11 +4,15 @@ HADOOP_USER=hadoop
 HADOOP_BASEDIR=/usr/local
 HADOOP_DIR=${HADOOP_BASEDIR}/hadoop
 
+# Stop execution on error
+set -e
+
 # Execute first the install_slave.sh
 ./install_slave.sh
 
 # Remember to edit /etc/hosts with hostnames of slaves and their IPs
-sudo nano /etc/hosts
+# sudo nano /etc/hosts
+cat src/hosts | sudo tee -a /etc/hosts > /dev/null
 
 # Copy masters and slaves conf files
 sudo cp src/conf/{masters,slaves} ${HADOOP_DIR}/conf

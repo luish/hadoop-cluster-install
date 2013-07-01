@@ -10,6 +10,9 @@ HADOOP_DISTDIR=${HADOOP_BASEDIR}/hadoop-${HADOOP_VERSION}
 HADOOP_MASTER_IP=192.168.1.128
 HADOOP_MASTER_HOSTNAME=master
 
+# Stop execution on error
+set -e
+
 # Install SSH, rsync and git
 echo "Instalando SSH, rsync e git"
 sudo apt-get install ssh rsync git
