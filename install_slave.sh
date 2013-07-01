@@ -7,6 +7,8 @@ HADOOP_FILENAME=hadoop-${HADOOP_VERSION}-bin.tar.gz
 HADOOP_BASEDIR=/usr/local
 HADOOP_DIR=${HADOOP_BASEDIR}/hadoop
 HADOOP_DISTDIR=${HADOOP_BASEDIR}/hadoop-${HADOOP_VERSION}
+HADOOP_MASTER_IP=192.168.1.128
+HADOOP_MASTER_HOSTNAME=master
 
 # Install SSH, rsync and git
 echo "Instalando SSH, rsync e git"
@@ -69,7 +71,7 @@ su -c "echo 'export PATH=\$PATH:${HADOOP_DIR}/bin' >> ~/.bashrc" ${HADOOP_USER}
 
 # Add master IP in hosts file
 echo "Adicionando IP do servidor master no /etc/hosts"
-echo "192.168.1.128 master" | sudo tee -a /etc/hosts > /dev/null
+echo -e "${HADOOP_MASTER_IP}\t${HADOOP_MASTER_HOSTNAME}" | sudo tee -a /etc/hosts > /dev/null
 
 # Complete
 echo "Installation Complete!"
