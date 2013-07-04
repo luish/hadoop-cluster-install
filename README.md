@@ -7,5 +7,6 @@ Script usado para instalar o Hadoop em todas as máquinas do cluster. Feito em S
 
 	[x] Parar execução se ocorrer algum erro nos comandos
 	[ ] Adicionar cor nas informações intermediárias para destacar
-	[ ] Suporte a 32 bits (Java, principalmente) e a outras distribuições
+	[x] Suporte a 32 bits (Java, principalmente)
+	[ ] Suporte a outras distribuições
 	[ ] Evitar digitar a senha várias vezes (su e sudo)

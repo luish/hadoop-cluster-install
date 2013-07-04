@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ARCH=amd64 # amd64 or i386
+
 HADOOP_USER=hadoop
 HADOOP_GROUP=hadoop
 HADOOP_VERSION=1.1.2
@@ -14,8 +16,8 @@ HADOOP_MASTER_HOSTNAME=master
 set -e
 
 # Install SSH, rsync and git
-echo "Instalando SSH, rsync e git"
-sudo apt-get install ssh rsync git
+echo "Instalando SSH, rsync"
+sudo apt-get install ssh rsync
 
 # Install Java
 echo "Instalando Java"
@@ -58,7 +60,7 @@ sudo ln -s ${HADOOP_DISTDIR} ${HADOOP_DIR}
 # Copy config files
 echo "Copiando arquivos de configuração"
 sudo cp src/conf/*.xml ${HADOOP_DIR}/conf/
-sudo cp src/conf/hadoop-env.sh ${HADOOP_DIR}/conf/
+sudo cp src/conf/${ARCH}/hadoop-env.sh ${HADOOP_DIR}/conf/
 
 # Permissions on Hadoop directory
 echo "Dando permissões ao diretório da instalação"
